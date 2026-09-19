@@ -103,9 +103,15 @@ button {
 
 .workspace {
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 340px 1fr;
   gap: 18px;
   margin-bottom: 18px;
+  align-items: start;
+}
+
+.side {
+  display: grid;
+  gap: 18px;
 }
 
 .panel {
@@ -206,6 +212,295 @@ input {
   margin: 0;
   color: #526071;
   line-height: 1.6;
+}
+
+/* ---- 放行台扩展 ---- */
+
+.field-grid.single {
+  grid-template-columns: 1fr;
+}
+
+button.block {
+  width: 100%;
+  margin-top: 12px;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+button.danger {
+  color: var(--secondary);
+  border-color: color-mix(in srgb, var(--secondary) 35%, var(--border));
+}
+
+.note {
+  margin: 10px 0 0;
+  font-size: 13px;
+  color: #526071;
+  line-height: 1.6;
+}
+
+.note.dim {
+  color: #94a3b8;
+}
+
+.error {
+  margin: 0;
+  font-size: 13px;
+  color: var(--secondary);
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.badge.ok {
+  color: #15803d;
+  background: #dcfce7;
+}
+
+.badge.warn {
+  color: #b45309;
+  background: #fef3c7;
+}
+
+.badge.muted {
+  color: #64748b;
+  background: #e2e8f0;
+}
+
+/* 平面图 */
+.map-wrap svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.ring {
+  fill: none;
+  stroke: #e2e8f0;
+  stroke-width: 0.8;
+}
+
+.axis-line {
+  stroke: #cbd5e1;
+  stroke-width: 0.8;
+  stroke-dasharray: 4 4;
+}
+
+.audience {
+  fill: color-mix(in srgb, var(--primary) 16%, #ffffff);
+  stroke: var(--primary);
+  stroke-width: 1.6;
+}
+
+.audience-buffer {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.2;
+  stroke-dasharray: 6 5;
+}
+
+.launch {
+  fill: #172033;
+}
+
+.shot {
+  stroke-width: 1.4;
+  stroke-dasharray: 5 4;
+}
+
+.shot.ok {
+  stroke: #16a34a;
+}
+
+.shot.bad {
+  stroke: var(--secondary);
+}
+
+.fallout.ok {
+  fill: #16a34a;
+}
+
+.fallout.bad {
+  fill: var(--secondary);
+  stroke: #ffffff;
+  stroke-width: 1.5;
+}
+
+.map-label {
+  font-size: 11px;
+  fill: #475569;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 10px;
+  font-size: 13px;
+  color: #526071;
+}
+
+.legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot.ok {
+  background: #16a34a;
+}
+
+.dot.bad {
+  background: var(--secondary);
+}
+
+.dot.zone {
+  background: color-mix(in srgb, var(--primary) 30%, #ffffff);
+  border: 1px solid var(--primary);
+}
+
+.dot.buffer {
+  background: transparent;
+  border: 1px dashed var(--accent);
+}
+
+/* 冲突位置 */
+.conflicts {
+  margin-top: 18px;
+}
+
+.conflicts h3 {
+  margin: 0 0 10px;
+}
+
+.conflict-item {
+  display: grid;
+  gap: 4px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  border: 1px solid color-mix(in srgb, var(--secondary) 30%, var(--border));
+  border-left: 4px solid var(--secondary);
+  border-radius: 8px;
+  background: #fff7f7;
+  font-size: 13px;
+}
+
+.conflict-item span {
+  color: #526071;
+}
+
+.reasons {
+  color: var(--secondary) !important;
+}
+
+/* 放行表 */
+.table-wrap {
+  overflow-x: auto;
+}
+
+.clearance-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 900px;
+}
+
+.clearance-table th,
+.clearance-table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.clearance-table th {
+  color: #64748b;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  background: #f8fafc;
+}
+
+.clearance-table tr.pending td {
+  background: #fffbeb;
+}
+
+.clearance-table .bad-num {
+  color: var(--secondary);
+  font-weight: 700;
+}
+
+.clearance-table .ops {
+  display: flex;
+  gap: 8px;
+}
+
+.clearance-table .ops button {
+  min-height: 30px;
+  padding: 0 10px;
+  font-size: 13px;
+}
+
+/* 判定历史 */
+.log {
+  display: grid;
+  gap: 10px;
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.log-item {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fbfdff;
+}
+
+.log-item.退回 {
+  border-left: 4px solid var(--accent);
+}
+
+.log-item.放行 {
+  border-left: 4px solid #16a34a;
+}
+
+.log-item.撤销 {
+  border-left: 4px solid #94a3b8;
+  background: #f8fafc;
+}
+
+.log-item p {
+  margin: 4px 0;
+  font-size: 13px;
+  color: #526071;
+  line-height: 1.6;
+}
+
+.log-item small {
+  color: #94a3b8;
+  font-size: 12px;
 }
 
 @media (max-width: 860px) {
